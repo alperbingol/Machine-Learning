@@ -30,7 +30,7 @@ test_label = pd.read_csv(join(path, "test_label.csv"))
 
 # show random samples from the training data
 train_data.sample(15)
-# One line of code
+
 
 """# Train Decision Tree with default parameters"""
 
@@ -38,9 +38,9 @@ from sklearn.tree import DecisionTreeClassifier
 
 # Train decision tree using the whole training data with **entropy** criteria
 s=time.time()
-# One line of code
+
 clf = DecisionTreeClassifier('entropy')
-# One line of code
+
 clf = clf.fit(train_data, train_label)
 e=time.time()
 print(e-s)
@@ -123,7 +123,7 @@ confusion_matrix(test_label,test_pred)
 # For finetuning, find the best value of K to use with this dataset.
 """
 
-# Write your code here
+
 
 from sklearn.neighbors import KNeighborsClassifier
 
@@ -162,8 +162,7 @@ from sklearn.metrics import confusion_matrix
 confusion_matrix(test_label,prediction)
 print(e-s)
 
-"""# Bonus
-
+"""
 # Apply gridsearch using decision tree on any hyperparameter(s) of your choice, you have to beat your previous obtained accuracies to get the bonus
 """
 
@@ -184,17 +183,7 @@ y_pred_acc = grid_clf_acc.predict(x_val)
 print('Accuracy Score : ' + str(accuracy_score(y_val,y_pred_acc)))
 confusion_matrix(y_val,y_pred_acc)
 
-"""# Report: Write a summary of your approach to this problem; this should be like an abstract of a paper or the executive summary (you aim for clarity and passing on information, not going to details about known facts such as what decision trees are, assuming they are known to people in your research area).
 
-Must include statements such as:
-
-
-*   Include the problem definition: 1-2 lines
-*   Talk about train/val/test sets, size and how split.
-*   State what your test results are with the chosen method, parameters: e.g. "We have obtained the best results with the ….. classifier (parameters=....) , giving classification accuracy of …% on test data…."
-*   Comment on the speed of the algorithms and anything else that you deem important/interesting (e.g. confusion matrix)
-
-# Write your report in this cell
 
 The problem is to determine whether a bank should give loan to their customers according to customer's history. The dataset includes features about customers and labels which indicates decision for giving loans to customers. To reach our goal Decision Tree Classifier and KNN Classifier are used.The test and train data have been given to us and they are splitted as 207 and 793 rows respectively. However, we still need to split the data for validation and training. In the algorithms we splitted data randomly by using model selection algoritm which named train_test_split() in sklearn module with split size 0.3 that means 30% of all datas will be reserved by validation. In Decision Tree Classifier we obtained the best results with min_sample_splits and criterion='entropy' parameters. The validation accuracy is 73.10% with given parameters. Testing  accuracy is 66.18% with best minimum split 31 on test data. At the same time, for KNN Classifier we obtained best results with n_neighbors parameter. Our testing accuracy is 69.56% on test data with 21 k while validation accuracy is 69.32%. The speed of the algoritms have been obtained by time() function in time module. For the Decision tree algorithmn the elapsed time is calculated as "Elapsed time:  0.011122465133666992" with the "Testing Accuracy = 66.18%" and confision matrix "array([[ 25,  37],
 [ 21, 124]])". Whereas, for the kNN classifier the results are "Elapsed time: 0.003773212432861328", "Testing accuracy = 69.56%" and confision matrix "array([[  4,  58],
